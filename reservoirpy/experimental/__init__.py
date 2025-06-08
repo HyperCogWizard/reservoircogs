@@ -26,6 +26,7 @@ Nodes
     BatchFORCE - Fast implementation of FORCE algorithm.
     RandomChoice - Randomly select features in a vector of data.
     AsabukiNorm - Normalization as defined in Asabuki et al. (2018)
+    MembraneComputing - P-Systems Membrane Computing for hierarchical processing
 """
 
 # Author: Nathan Trouvain at 03/02/2022 <nathan.trouvain@inria.fr>
@@ -34,6 +35,7 @@ Nodes
 from .add import Add
 from .batchforce import BatchFORCE
 from .norm import AsabukiNorm
+from .psystems import MembraneComputing
 from .randomchoice import RandomChoice
 from .sklearn import from_sklearn
 from .spiking.lif import LIF
@@ -42,6 +44,7 @@ __all__ = [
     "Add",
     "BatchFORCE",
     "AsabukiNorm",
+    "MembraneComputing",
     "RandomChoice",
     "from_sklearn",
     "LIF",
