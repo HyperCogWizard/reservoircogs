@@ -38,6 +38,21 @@ Regression models
     :toctree: generated/
 
     regression_models.RidgeRegression - Tikhonov regression solver
+    BSeriesRidgeRegression - B-Series Rooted Tree Gradient Descent for ridge regression
+
+Advanced Optimization
+====================
+
+The B-Series Rooted Tree Gradient Descent provides enhanced optimization
+capabilities for ridge regression through:
+
+- B-Series expansion for systematic high-order method construction
+- Rooted tree representation for differential equation solutions
+- Multiple Runge-Kutta integration orders (RK2, RK4, RK6)
+- Enhanced numerical stability and convergence properties
+
+This implementation is part of the research-driven features for next-generation
+reservoir computing optimization.
 """
 import json
 import pathlib
@@ -56,6 +71,7 @@ from . import regression_models
 from ._esn import ESN
 from ._esn_online import ESNOnline
 from .utils.save import load
+from .bseries_regression import BSeriesRidgeRegression
 
 
 def _load_files_from_v2(dirpath):
@@ -191,4 +207,4 @@ def load_compat(directory: Union[str, pathlib.Path]) -> ESN_v3:
     return model
 
 
-__all__ = ["ESN", "ESNOnline", "load_compat", "regression_models", "load"]
+__all__ = ["ESN", "ESNOnline", "load_compat", "regression_models", "load", "BSeriesRidgeRegression"]
