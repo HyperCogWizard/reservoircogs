@@ -57,6 +57,7 @@ ReservoirCogs now includes deep integration with OpenCog AtomSpace for symbolic 
 - Easy creation of [complex architectures](docs/user_guide/model.md) with multiple reservoirs (e.g. *deep reservoirs*), readouts
 - [Feedback loops](docs/user_guide/advanced_demo.md#Feedback-connections) and advanced temporal processing
 - **OpenCog AtomSpace integration** for symbolic AI and knowledge representation
+- **Differential Emotion Theory Framework** for affective computing and emotionally aware AI
 - **High-performance C++ implementation** alongside Python compatibility
 - [Intrinsic plasticity](examples/Improving%20reservoirs%20using%20Intrinsic%20Plasticity/Intrinsic_Plasiticity_Schrauwen_et_al_2008.ipynb) for adaptive reservoir dynamics
 - [Online learning](docs/user_guide/learning_rules.md) for real-time applications
@@ -208,7 +209,7 @@ Research-driven features for long-term innovation:
 - **🧬 P-Systems Membrane Computing** with P-lingua integration
 - **🌳 B-Series Rooted Tree Gradient Descent** with Runge-Kutta methods ✅ *Research implementation available*
 - **💎 J-Surface Julia Differential Equations** with DifferentialEquations.jl
-- **💝 Differential Emotion Theory Framework** for affective computing
+- **💝 Differential Emotion Theory Framework** for affective computing ✅ *Research implementation available*
 
 ### 📋 Project Management
 

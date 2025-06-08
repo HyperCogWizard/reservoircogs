@@ -16,6 +16,7 @@ Reservoirs
    NVAR - Non-linear Vector Autoregressive machine (NG-RC)
    IPReservoir - Reservoir with intrinsic plasticity learning rule
    LocalPlasticityReservoir - Reservoir with weight plasticity
+   EmotionReservoir - Emotion-aware reservoir with differential emotion theory
 
 Offline readouts
 ================
@@ -80,6 +81,15 @@ Operators
 
    Concat - Concatenate vector of data along feature axis.
    Delay - Adds a discrete delay between input and output.
+
+Emotion Processing
+==================
+
+.. autosummary::
+   :toctree: generated/
+   :template: autosummary/class.rst
+
+   DifferentialEmotionProcessor - Differential emotion theory processor for affective computing.
 """
 # Author: Nathan Trouvain at 16/12/2021 <nathan.trouvain@inria.fr>
 # Licence: MIT License
@@ -91,6 +101,13 @@ from .esn import ESN
 from .io import Input, Output
 from .readouts import FORCE, LMS, RLS, Ridge, ScikitLearnNode
 from .reservoirs import NVAR, IPReservoir, LocalPlasticityReservoir, Reservoir
+
+# Conditional import for emotion nodes (may require additional dependencies)
+try:
+    from .emotions import DifferentialEmotionProcessor, EmotionReservoir
+    _emotion_imports_available = True
+except ImportError:
+    _emotion_imports_available = False
 
 __all__ = [
     "Reservoir",
@@ -114,3 +131,10 @@ __all__ = [
     "ScikitLearnNode",
     "LocalPlasticityReservoir",
 ]
+
+# Add emotion nodes to __all__ if available
+if _emotion_imports_available:
+    __all__.extend([
+        "DifferentialEmotionProcessor",
+        "EmotionReservoir",
+    ])
