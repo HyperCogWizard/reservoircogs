@@ -1,0 +1,42 @@
+/*
+ * ReservoirCogs AtomSpace Type Definitions
+ * 
+ * This file defines custom atom types for reservoir computing
+ * integration with OpenCog AtomSpace.
+ */
+
+#include <opencog/atoms/atom_types/atom_types.h>
+
+// Base reservoir computing types
+RESERVOIR_NODE <- NODE
+ECHO_STATE_NETWORK_NODE <- RESERVOIR_NODE
+LIQUID_STATE_MACHINE_NODE <- RESERVOIR_NODE
+
+// Reservoir components
+RESERVOIR_MATRIX_NODE <- NODE
+INPUT_WEIGHTS_NODE <- RESERVOIR_MATRIX_NODE
+INTERNAL_WEIGHTS_NODE <- RESERVOIR_MATRIX_NODE
+OUTPUT_WEIGHTS_NODE <- RESERVOIR_MATRIX_NODE
+FEEDBACK_WEIGHTS_NODE <- RESERVOIR_MATRIX_NODE
+
+// Reservoir states and dynamics
+RESERVOIR_STATE_NODE <- NODE
+ACTIVATION_FUNCTION_NODE <- NODE
+READOUT_NODE <- NODE
+
+// Reservoir links for connectivity
+RESERVOIR_LINK <- LINK
+WEIGHT_LINK <- RESERVOIR_LINK
+FEEDBACK_LINK <- RESERVOIR_LINK
+INPUT_LINK <- RESERVOIR_LINK
+OUTPUT_LINK <- RESERVOIR_LINK
+
+// Training and learning
+TRAINING_DATA_NODE <- NODE
+LEARNING_RULE_NODE <- NODE
+PERFORMANCE_METRIC_NODE <- NODE
+
+// Temporal dynamics
+TEMPORAL_SEQUENCE_LINK <- LINK
+MEMORY_CAPACITY_NODE <- NODE
+ECHO_STATE_PROPERTY_NODE <- NODE
