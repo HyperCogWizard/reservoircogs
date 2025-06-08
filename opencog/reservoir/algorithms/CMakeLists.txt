@@ -13,5 +13,6 @@ TARGET_LINK_LIBRARIES(reservoircogs-algorithms
 # Install headers
 INSTALL(FILES
     ReservoirAlgorithms.h
+    PSystems.h
     DESTINATION include/opencog/reservoir/algorithms
 )
