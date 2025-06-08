@@ -109,12 +109,25 @@ optimizer = BSeries(
 #### Julia Integration
 Differential equation solving with Julia backend:
 
-```julia
-# Future Julia integration
-using ReservoirCogs, DifferentialEquations
+```python
+# Julia Differential ESN - NOW AVAILABLE!
+from reservoirpy.compat import JuliaDifferentialESN
 
-reservoir = EchoStateNetwork(100, solver=Tsit5())
-solution = solve(reservoir, timespan=(0.0, 10.0))
+# Create differential ESN with Julia backend
+model = JuliaDifferentialESN(
+    n_reservoir=100,
+    spectral_radius=0.95,
+    solver="Tsit5",  # Uses DifferentialEquations.jl
+    dt=0.01
+)
+
+# Initialize and train
+model.initialize(dim_in=3, dim_out=1) 
+model.fit(X_train, Y_train)
+predictions = model.predict(X_test)
+
+# Automatic fallback to Python when Julia unavailable
+print(f"Using Julia: {model.julia_available}")
 ```
 
 ## Usage Examples

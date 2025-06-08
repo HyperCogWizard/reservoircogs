@@ -39,6 +39,22 @@ Regression models
 
     regression_models.RidgeRegression - Tikhonov regression solver
     BSeriesRidgeRegression - B-Series Rooted Tree Gradient Descent for ridge regression
+    JuliaDifferentialESN - Julia-based Differential Echo State Network
+
+Julia Differential Equations
+============================
+
+The J-Surface Julia Differential Equations implementation provides cutting-edge
+differential echo state networks through:
+
+- Elementary differential echo state networks (ESNs)
+- Julia-based ODE/SDE solving with DifferentialEquations.jl
+- Symbolic modeling capabilities via ModelingToolkit.jl  
+- High-performance numerical integration for reservoir computing
+- Automatic fallback to Python when Julia is not available
+
+This implementation leverages Julia's scientific computing ecosystem while
+maintaining seamless integration with the Python ReservoirPy framework.
 
 Advanced Optimization
 ====================
@@ -72,6 +88,7 @@ from ._esn import ESN
 from ._esn_online import ESNOnline
 from .utils.save import load
 from .bseries_regression import BSeriesRidgeRegression
+from .julia_de import JuliaDifferentialESN
 
 
 def _load_files_from_v2(dirpath):
@@ -207,4 +224,4 @@ def load_compat(directory: Union[str, pathlib.Path]) -> ESN_v3:
     return model
 
 
-__all__ = ["ESN", "ESNOnline", "load_compat", "regression_models", "load", "BSeriesRidgeRegression"]
+__all__ = ["ESN", "ESNOnline", "load_compat", "regression_models", "load", "BSeriesRidgeRegression", "JuliaDifferentialESN"]
