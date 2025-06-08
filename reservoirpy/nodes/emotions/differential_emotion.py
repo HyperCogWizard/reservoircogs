@@ -117,19 +117,28 @@ class DifferentialEmotionProcessor(Node):
     
     def _apply_emotion_dynamics(self, raw_emotions: np.ndarray) -> np.ndarray:
         """Apply differential emotion theory dynamics to raw activations."""
+        # Handle batched input
+        if raw_emotions.ndim > 1:
+            raw_emotions = raw_emotions.flatten()
+            
         # Apply softmax for competition between emotions
         emotions = np.exp(raw_emotions - np.max(raw_emotions))
         emotions = emotions / np.sum(emotions)
         
-        # Apply emotion-specific transformations
+        # Apply emotion-specific transformations only if indices exist
         # Interest and joy are approach emotions (positive)
-        emotions[0] = max(0, emotions[0])  # interest
-        emotions[1] = max(0, emotions[1])  # joy
+        if len(emotions) > 0:
+            emotions[0] = max(0, emotions[0])  # interest
+        if len(emotions) > 1:
+            emotions[1] = max(0, emotions[1])  # joy
         
-        # Fear, sadness, anger are avoidance emotions
-        emotions[7] = max(0, emotions[7])  # fear
-        emotions[3] = max(0, emotions[3])  # sadness
-        emotions[4] = max(0, emotions[4])  # anger
+        # Fear, sadness, anger are avoidance emotions (be careful with indices)
+        if len(emotions) > 3:
+            emotions[3] = max(0, emotions[3])  # sadness
+        if len(emotions) > 4:
+            emotions[4] = max(0, emotions[4])  # anger
+        if len(emotions) > 7:
+            emotions[7] = max(0, emotions[7])  # fear
         
         return emotions
     
