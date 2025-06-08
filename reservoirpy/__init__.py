@@ -11,6 +11,7 @@ from .node import Node
 from .ops import link, link_feedback, merge
 from .utils import verbosity
 from .utils.random import set_seed
+from . import bpj_integration
 
 logger = logging.getLogger(__name__)
 
@@ -37,4 +38,5 @@ __all__ = [
     "set_seed",
     "verbosity",
     "load_compat",
+    "bpj_integration",
 ]
