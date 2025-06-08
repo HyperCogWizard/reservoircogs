@@ -18,6 +18,20 @@ make basic_esn_example
 ./basic_esn_example
 ```
 
+### emotion_atomspace_example.cpp
+Differential Emotion Theory Framework with AtomSpace integration. Shows:
+- Creating emotion-aware processors with symbolic representation
+- Processing emotional stimuli with temporal dynamics
+- Storing emotion states and history in AtomSpace
+- Querying emotional knowledge symbolically
+
+To build and run:
+```bash
+cd build
+make emotion_example
+./emotion_example
+```
+
 ### symbolic_pattern_recognition.cpp
 Advanced pattern recognition using symbolic reasoning:
 - Temporal sequence analysis

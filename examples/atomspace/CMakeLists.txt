@@ -9,8 +9,17 @@ IF(BUILD_EXAMPLES)
         ${COGUTIL_LIBRARIES}
     )
     
+    # Emotion AtomSpace example
+    ADD_EXECUTABLE(emotion_example emotion_atomspace_example.cpp)
+    TARGET_LINK_LIBRARIES(emotion_example
+        reservoircogs-nodes
+        reservoircogs-algorithms
+        ${ATOMSPACE_LIBRARIES}
+        ${COGUTIL_LIBRARIES}
+    )
+    
     # Install examples
-    INSTALL(TARGETS basic_esn_example
+    INSTALL(TARGETS basic_esn_example emotion_example
         RUNTIME DESTINATION bin/examples
     )
     
@@ -18,6 +27,7 @@ IF(BUILD_EXAMPLES)
     INSTALL(FILES
         python_cpp_bridge.py
         README.md
+        emotion_atomspace_example.cpp
         DESTINATION share/reservoircogs/examples/atomspace
     )
 ENDIF(BUILD_EXAMPLES)
