@@ -295,13 +295,10 @@ writedlm("reservoir_states.csv", reservoir_states, ',')
         # Initialize reservoir matrices
         self._initialize_reservoir_matrices()
         
-        # Initialize readout weights
+        # Initialize readout weights (but don't set Wout yet, wait for fitting)
         if getattr(self, "Wout", None) is None:
-            # Include bias term in readout
-            readout_dim = self.n_reservoir + 1
-            self.Wout = np.random.normal(
-                0, 0.01, (self._dim_out, readout_dim)
-            ).astype(self._dtype)
+            # Will be set during fitting
+            self.Wout = None
             
         # Initialize Tikhonov matrices for compatibility
         readout_dim = self.n_reservoir + 1
