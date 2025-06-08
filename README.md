@@ -2,11 +2,14 @@
   <img src="static/rpy_banner_light.png#gh-light-mode-only">
   <img src="static/rpy_banner_dark.png#gh-dark-mode-only">
 
-  **Simple and flexible library for Reservoir Computing architectures like Echo State Networks (ESN).**
+  **ReservoirCogs: Advanced Reservoir Computing with OpenCog AtomSpace Integration**
+
+  Flexible library for Reservoir Computing architectures like Echo State Networks (ESN) with deep symbolic AI integration through OpenCog AtomSpace.
 
   [![PyPI version](https://badge.fury.io/py/reservoirpy.svg)](https://badge.fury.io/py/reservoirpy)
   [![HAL](https://img.shields.io/badge/HAL-02595026-white?style=flat&logo=HAL&logoColor=white&labelColor=B03532&color=grey)](https://inria.hal.science/hal-02595026)
   ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/reservoirpy)
+  [![OpenCog Integration](https://img.shields.io/badge/OpenCog-AtomSpace-blue)](https://github.com/opencog/atomspace)
   <br/>
   [![Downloads](https://static.pepy.tech/badge/reservoirpy)](https://pepy.tech/project/reservoirpy)
   [![Documentation Status](https://readthedocs.org/projects/reservoirpy/badge/?version=latest)](https://reservoirpy.readthedocs.io/en/latest/?badge=latest)
@@ -19,16 +22,33 @@
 ---
 
 <p> <img src="static/googlecolab.svg" alt="Google Colab icon" width=32 height=32 align="left"><b>Tutorials:</b> <a href="https://colab.research.google.com/github/reservoirpy/reservoirpy/blob/master/tutorials/1-Getting_Started.ipynb">Open in Colab</a> </p>
-<!--<p><img src="static/changelog.svg" alt="2" width =32 height=32 align="left"><b>Changelog:</b> https://github.com/reservoirpy/reservoirpy/releases</p>-->
-<p> <img src="static/documentation.svg" alt="Open book icon" width=32 height=32 align="left"><b>Documentation:</b> <a href="https://reservoirpy.readthedocs.io/">https://reservoirpy.readthedocs.io/</a></p>
-<!--<p> <img src="static/user_guide.svg" width=32 height=32 align="left"><b>User Guide:</b> https://reservoirpy.readthedocs.io/en/latest/user_guide/</a></p>-->
+<p> <img src="static/documentation.svg" alt="Open book icon" width=32 height=32 align="left"><b>Documentation:</b> <a href="docs/getting_started.md">Getting Started</a> | <a href="docs/user_guide/index.md">User Guide</a> | <a href="docs/user_guide/atomspace_integration.md">AtomSpace Integration</a></p>
+<p> <img src="static/cpp_icon.svg" alt="C++ icon" width=32 height=32 align="left"><b>C++ API:</b> High-performance reservoir computing with OpenCog AtomSpace integration</p>
+
+---
+
+## 🚀 NEW: OpenCog AtomSpace Integration
+
+ReservoirCogs now includes deep integration with OpenCog AtomSpace for symbolic AI capabilities:
+
+- **Symbolic Representation**: Store reservoir states and dynamics as AtomSpace knowledge
+- **Temporal Logic**: Reason about sequences and temporal patterns  
+- **Knowledge Extraction**: Extract learned patterns as symbolic concepts
+- **High Performance**: C++ implementation for production systems
+- **Hybrid AI**: Combine neural reservoir computing with symbolic reasoning
 
 ---
 
 **Feature overview:**
-- easy creation of [complex architectures](https://reservoirpy.readthedocs.io/en/latest/user_guide/model.html) with multiple reservoirs (e.g. *deep reservoirs*),
-readouts
-- [feedback loops](https://reservoirpy.readthedocs.io/en/latest/user_guide/advanced_demo.html#Feedback-connections)
+- Easy creation of [complex architectures](docs/user_guide/model.md) with multiple reservoirs (e.g. *deep reservoirs*), readouts
+- [Feedback loops](docs/user_guide/advanced_demo.md#Feedback-connections) and advanced temporal processing
+- **OpenCog AtomSpace integration** for symbolic AI and knowledge representation
+- **High-performance C++ implementation** alongside Python compatibility
+- [Intrinsic plasticity](examples/Improving%20reservoirs%20using%20Intrinsic%20Plasticity/Intrinsic_Plasiticity_Schrauwen_et_al_2008.ipynb) for adaptive reservoir dynamics
+- [Online learning](docs/user_guide/learning_rules.md) for real-time applications
+- [Evolutionary optimization](docs/user_guide/atomspace_integration.md#evolutionary-optimization) of reservoir topologies
+- **Symbolic pattern recognition** and temporal logic reasoning
+- **Hybrid neural-symbolic** architectures
 - [offline and online training](https://reservoirpy.readthedocs.io/en/latest/user_guide/learning_rules.html)
 - [parallel implementation](https://reservoirpy.readthedocs.io/en/latest/api/generated/reservoirpy.nodes.ESN.html)
 - sparse matrix computation
@@ -41,10 +61,57 @@ with the help of the *hyperopt* library.
 
 ## Quick try ⚡
 
-### Installation
+### Python Installation
 
 ```bash
 pip install reservoirpy
+```
+
+### C++ Installation with OpenCog
+
+```bash
+# Install OpenCog dependencies
+sudo apt-get install opencog-dev
+
+# Clone and build ReservoirCogs
+git clone https://github.com/HyperCogWizard/reservoircogs.git
+cd reservoircogs
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+```
+
+### Basic Python Usage
+
+```python
+import reservoirpy as rpy
+from reservoirpy.nodes import Reservoir, Ridge
+
+# Create a simple ESN
+reservoir = Reservoir(100, lr=0.3, sr=0.9)
+readout = Ridge(ridge=1e-6)
+
+# Connect and train
+model = reservoir >> readout
+model.fit(X_train, y_train)
+predictions = model.run(X_test)
+```
+
+### C++ AtomSpace Usage
+
+```cpp
+#include <opencog/reservoir/nodes/ReservoirNode.h>
+
+// Create AtomSpace and reservoir
+auto atomspace = createAtomSpace();
+auto esn = std::make_shared<EchoStateNetwork>(atomspace, 100, 3, 1);
+
+// Configure and train
+esn->set_leaking_rate(0.3);
+algorithms::ReservoirTrainer trainer(atomspace);
+trainer.train_esn_ridge_regression(esn, inputs, targets);
+auto predictions = esn->predict(test_input);
 ```
 
 ### An example on chaotic timeseries prediction (Mackey-Glass)
