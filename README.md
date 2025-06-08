@@ -33,6 +33,8 @@
 > Don’t miss out, it’s available for a limited time! ⏳
 > 
 > https://chat.reservoirpy.inria.fr
+> 
+> **🌟 NEW: [ReservoirChat Playground](playground/index.html) - Mindbendingly Amazing Interactive Experience!**
 
 <br />
 
