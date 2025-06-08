@@ -1,0 +1,63 @@
+name: 📚 Documentation
+description: Improvements or additions to documentation
+title: "[DOCS] "
+labels: ["documentation"]
+projects: ["HyperCogWizard/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📚 Documentation Request
+        
+        Use this template for documentation improvements, additions, or requests.
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation is this about?
+      options:
+        - 📖 User Guide
+        - 🔧 Technical Reference
+        - 🚀 Tutorial/Examples
+        - 🏗️ API Documentation
+        - 🎮 Playground Documentation
+        - 🔬 Research Papers/Publications
+        - ❓ FAQ
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc-action
+    attributes:
+      label: Action Needed
+      description: What needs to be done with the documentation?
+      options:
+        - ✍️ Create new documentation
+        - 🔄 Update existing documentation
+        - 🔍 Review and improve
+        - 🐛 Fix documentation bugs
+        - 🗂️ Reorganize structure
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what documentation is needed or what should be improved
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current State
+      description: If updating existing docs, describe the current state and what's missing/wrong
+
+  - type: textarea
+    id: proposed-content
+    attributes:
+      label: Proposed Content
+      description: Outline or draft of the proposed documentation content
