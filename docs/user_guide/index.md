@@ -12,9 +12,10 @@ ReservoirCogs is a flexible and powerful library for reservoir computing with de
 4. [Learning Rules](learning_rules.md) - Training and adaptation algorithms
 5. [Hyperparameter Optimization](hyper.md) - Automated parameter tuning
 6. [AtomSpace Integration](atomspace_integration.md) - Using symbolic AI features
-7. [Advanced Examples](advanced_demo.md) - Complex use cases and patterns
-8. [Creating Custom Nodes](create_new_node.md) - Extending the framework
-9. [Compatibility](compat.md) - Working with legacy ReservoirPy code
+7. [ReservoirChat Playground](playground.md) - Interactive exploration platform
+8. [Advanced Examples](advanced_demo.md) - Complex use cases and patterns
+9. [Creating Custom Nodes](create_new_node.md) - Extending the framework
+10. [Compatibility](compat.md) - Working with legacy ReservoirPy code
 
 ## Python API Overview
 

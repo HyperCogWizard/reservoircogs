@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReservoirChat Playground - Mindbendingly Amazing</title>
+    <link rel="stylesheet" href="css/playground.css">
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="playground-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="../static/rpy_banner_light.png" alt="ReservoirCogs" class="logo light-mode">
+                <img src="../static/rpy_banner_dark.png" alt="ReservoirCogs" class="logo dark-mode">
+                <h1>ReservoirChat Playground</h1>
+                <p class="subtitle">🎉 Mindbendingly Amazing AI Exploration 🚀</p>
+            </div>
+            <nav class="playground-nav">
+                <button class="nav-btn active" data-section="chat">💬 Chat</button>
+                <button class="nav-btn" data-section="features">🔧 Features</button>
+                <button class="nav-btn" data-section="explore">🔍 Explore</button>
+                <button class="nav-btn" data-section="future">🚀 Future</button>
+                <button class="theme-toggle" title="Toggle Theme">🌓</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="playground-main">
+        <!-- Chat Section -->
+        <section id="chat-section" class="section active">
+            <div class="section-header">
+                <h2>🤖 ReservoirChat Interface</h2>
+                <p>Chat with our AI about Reservoir Computing and ReservoirPy!</p>
+                <div class="chat-status">
+                    <span class="status-indicator online"></span>
+                    <span>Limited Time Beta - Don't Miss Out! ⏳</span>
+                </div>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-info">
+                    <h3>🎯 What You Can Ask:</h3>
+                    <ul>
+                        <li>🧠 Reservoir Computing fundamentals</li>
+                        <li>🔗 Echo State Networks (ESNs)</li>
+                        <li>⚡ OpenCog AtomSpace integration</li>
+                        <li>📊 GraphRAG and knowledge extraction</li>
+                        <li>🤖 Codestral and AI features</li>
+                        <li>💡 Best practices and examples</li>
+                    </ul>
+                </div>
+                
+                <div class="chat-iframe-container">
+                    <iframe 
+                        src="https://chat.reservoirpy.inria.fr/" 
+                        title="ReservoirChat Interface"
+                        class="chat-iframe"
+                        frameborder="0"
+                        loading="lazy">
+                        <p>Your browser doesn't support iframes. 
+                           <a href="https://chat.reservoirpy.inria.fr/" target="_blank">
+                               Open ReservoirChat directly
+                           </a>
+                        </p>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features-section" class="section">
+            <div class="section-header">
+                <h2>🔧 Technical Features Deep Dive</h2>
+                <p>Explore the cutting-edge technologies powering ReservoirChat</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🕸️</div>
+                    <h3>GraphRAG Integration</h3>
+                    <p>Advanced Retrieval-Augmented Generation using knowledge graphs for contextual understanding of reservoir computing concepts.</p>
+                    <div class="feature-details">
+                        <h4>Key Capabilities:</h4>
+                        <ul>
+                            <li>Semantic knowledge extraction</li>
+                            <li>Graph-based reasoning</li>
+                            <li>Context-aware responses</li>
+                            <li>Temporal pattern recognition</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Codestral AI Engine</h3>
+                    <p>State-of-the-art language model specialized for technical documentation and code generation.</p>
+                    <div class="feature-details">
+                        <h4>Specialized For:</h4>
+                        <ul>
+                            <li>Python code generation</li>
+                            <li>C++ AtomSpace integration</li>
+                            <li>Technical explanations</li>
+                            <li>Mathematical formulations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AtomSpace Intelligence</h3>
+                    <p>OpenCog AtomSpace provides symbolic AI reasoning capabilities for deep technical understanding.</p>
+                    <div class="feature-details">
+                        <h4>Symbolic Features:</h4>
+                        <ul>
+                            <li>Knowledge representation</li>
+                            <li>Logical inference</li>
+                            <li>Pattern learning</li>
+                            <li>Concept formation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Hybrid AI Architecture</h3>
+                    <p>Combining neural reservoir computing with symbolic reasoning for unprecedented AI capabilities.</p>
+                    <div class="feature-details">
+                        <h4>Integration Points:</h4>
+                        <ul>
+                            <li>Neural-symbolic fusion</li>
+                            <li>Temporal logic reasoning</li>
+                            <li>Adaptive learning</li>
+                            <li>Multi-modal processing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Section -->
+        <section id="explore-section" class="section">
+            <div class="section-header">
+                <h2>🔍 Model Exploration & Study</h2>
+                <p>Interactive tools to understand and experiment with ReservoirChat's capabilities</p>
+            </div>
+            
+            <div class="exploration-tools">
+                <div class="tool-section">
+                    <h3>🎯 Query Analysis</h3>
+                    <div class="tool-content">
+                        <div class="query-analyzer">
+                            <textarea 
+                                placeholder="Enter a question about reservoir computing..."
+                                class="query-input"
+                                rows="3"></textarea>
+                            <button class="analyze-btn">Analyze Query Structure</button>
+                            <div class="analysis-output">
+                                <p><em>Analysis will appear here...</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-section">
+                    <h3>📊 Knowledge Graph Visualization</h3>
+                    <div class="tool-content">
+                        <div class="graph-container">
+                            <canvas id="knowledge-graph" width="600" height="400"></canvas>
+                            <div class="graph-controls">
+                                <button class="graph-btn" data-topic="reservoir">Reservoir Computing</button>
+                                <button class="graph-btn" data-topic="atomspace">AtomSpace</button>
+                                <button class="graph-btn" data-topic="esn">Echo State Networks</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-section">
+                    <h3>⚙️ Configuration Explorer</h3>
+                    <div class="tool-content">
+                        <div class="config-grid">
+                            <div class="config-group">
+                                <h4>GraphRAG Settings</h4>
+                                <label>
+                                    <span>Context Window:</span>
+                                    <input type="range" min="1000" max="8000" value="4000" class="config-slider">
+                                    <span class="slider-value">4000</span>
+                                </label>
+                                <label>
+                                    <span>Graph Depth:</span>
+                                    <input type="range" min="1" max="5" value="3" class="config-slider">
+                                    <span class="slider-value">3</span>
+                                </label>
+                            </div>
+                            <div class="config-group">
+                                <h4>Codestral Parameters</h4>
+                                <label>
+                                    <span>Temperature:</span>
+                                    <input type="range" min="0" max="1" step="0.1" value="0.7" class="config-slider">
+                                    <span class="slider-value">0.7</span>
+                                </label>
+                                <label>
+                                    <span>Max Tokens:</span>
+                                    <input type="range" min="100" max="2000" value="1000" class="config-slider">
+                                    <span class="slider-value">1000</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Section -->
+        <section id="future-section" class="section">
+            <div class="section-header">
+                <h2>🚀 Future Developments</h2>
+                <p>Upcoming revolutionary features and research directions</p>
+            </div>
+            
+            <div class="future-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker active"></div>
+                    <div class="timeline-content">
+                        <h3>🧬 P-Systems Membrane Computing</h3>
+                        <p>Integration of P-lingua for membrane computing reservoir partitions, enabling bio-inspired computational models with hierarchical processing capabilities.</p>
+                        <div class="tech-details">
+                            <span class="tech-tag">P-lingua</span>
+                            <span class="tech-tag">Membrane Computing</span>
+                            <span class="tech-tag">Parallel Processing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>🌳 B-Series Rooted Tree Gradient Descent</h3>
+                        <p>Advanced mathematical framework using B-series expansions with Runge-Kutta methods for optimized ridge regression in reservoir training.</p>
+                        <div class="tech-details">
+                            <span class="tech-tag">B-Series</span>
+                            <span class="tech-tag">Runge-Kutta</span>
+                            <span class="tech-tag">Ridge Regression</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>💎 J-Surface Julia Differential Equations</h3>
+                        <p>Julia-based differential equation solving with elementary differential echo state core, powered by DifferentialEquations.jl and ModelingToolkit.jl.</p>
+                        <div class="tech-details">
+                            <span class="tech-tag">Julia</span>
+                            <span class="tech-tag">DifferentialEquations.jl</span>
+                            <span class="tech-tag">ModelingToolkit.jl</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>💝 Differential Emotion Theory Framework</h3>
+                        <p>Affective computing core complementing OpenCog's cognitive synergy, implementing differential emotion theory for emotionally aware AI systems.</p>
+                        <div class="tech-details">
+                            <span class="tech-tag">Affective Computing</span>
+                            <span class="tech-tag">Emotion Theory</span>
+                            <span class="tech-tag">Cognitive Synergy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-projects">
+                <h3>🔬 Ongoing Research Projects</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4>Multi-Modal Reservoir Integration</h4>
+                        <p>Combining text, audio, and visual processing in unified reservoir architectures.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Quantum-Inspired Reservoir Computing</h4>
+                        <p>Exploring quantum computational principles in classical reservoir systems.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Neuromorphic Hardware Implementation</h4>
+                        <p>Deploying ReservoirCogs on neuromorphic chips for ultra-low power AI.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Federated Reservoir Learning</h4>
+                        <p>Distributed training of reservoir networks while preserving privacy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="playground-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../README.md">Documentation</a>
+                <a href="https://github.com/HyperCogWizard/reservoircogs" target="_blank">GitHub</a>
+                <a href="https://reservoirpy.readthedocs.io/" target="_blank">API Docs</a>
+                <a href="mailto:xavier.hinaut@inria.fr">Contact</a>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 ReservoirCogs - Advanced Reservoir Computing with OpenCog Integration</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/playground.js"></script>
+</body>
+</html>
