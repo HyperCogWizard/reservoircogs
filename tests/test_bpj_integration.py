@@ -21,7 +21,7 @@ def test_oeis_a000081():
         
         # Test known values of OEIS A000081
         sequence = oeis_a000081(10)
-        expected = [1, 1, 2, 4, 9, 20, 48, 115, 274, 668]
+        expected = [1, 1, 2, 4, 9, 20, 48, 115, 286, 719]
         
         if len(sequence) != len(expected):
             print(f"✗ Sequence length mismatch: got {len(sequence)}, expected {len(expected)}")
