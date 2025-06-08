@@ -1,0 +1,135 @@
+name: Setup Project Labels and Milestones
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - '.github/PROJECT_ROADMAP.md'
+      - '.github/workflows/setup-project.yml'
+
+jobs:
+  setup-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create project labels
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const labels = [
+              // Feature categories
+              { name: 'technical-feature', color: '0075ca', description: 'Current technical features (GraphRAG, Codestral, AtomSpace, Hybrid AI)' },
+              { name: 'future-roadmap', color: '7057ff', description: 'Future development features (P-Systems, B-Series, J-Surface, Emotion Theory)' },
+              { name: 'research', color: 'd876e3', description: 'Research-oriented features requiring academic rigor' },
+              
+              // Priority levels
+              { name: 'priority: critical', color: 'd73a4a', description: 'Critical priority - blocking other features' },
+              { name: 'priority: high', color: 'ff6b35', description: 'High priority - important for next release' },
+              { name: 'priority: medium', color: 'fbca04', description: 'Medium priority - planned for current milestone' },
+              { name: 'priority: low', color: '0e8a16', description: 'Low priority - future enhancement' },
+              
+              // Component labels
+              { name: 'component: graphrag', color: '1f77b4', description: 'GraphRAG Integration component' },
+              { name: 'component: codestral', color: 'ff7f0e', description: 'Codestral AI Engine component' },
+              { name: 'component: atomspace', color: '2ca02c', description: 'AtomSpace Intelligence component' },
+              { name: 'component: hybrid-ai', color: 'd62728', description: 'Hybrid AI Architecture component' },
+              { name: 'component: python', color: '3776ab', description: 'Python API component' },
+              { name: 'component: cpp', color: '00599c', description: 'C++ Backend component' },
+              { name: 'component: playground', color: 'f1c40f', description: 'ReservoirChat Playground component' },
+              
+              // Development phase
+              { name: 'phase: research', color: '9b59b6', description: 'Research and planning phase' },
+              { name: 'phase: proof-of-concept', color: 'e67e22', description: 'Proof of concept phase' },
+              { name: 'phase: implementation', color: '3498db', description: 'Implementation phase' },
+              { name: 'phase: testing', color: 'f39c12', description: 'Testing and validation phase' },
+              { name: 'phase: documentation', color: '27ae60', description: 'Documentation phase' },
+              { name: 'phase: integration', color: '8e44ad', description: 'Integration phase' },
+              
+              // Effort estimation
+              { name: 'effort: small', color: 'c5def5', description: 'Small effort (< 1 week)' },
+              { name: 'effort: medium', color: '76c7c0', description: 'Medium effort (1-4 weeks)' },
+              { name: 'effort: large', color: 'f9ca24', description: 'Large effort (1-3 months)' },
+              { name: 'effort: epic', color: 'fd79a8', description: 'Epic effort (3+ months)' },
+              
+              // Timeline
+              { name: 'timeline: q1-2025', color: 'a8e6cf', description: 'Planned for Q1 2025' },
+              { name: 'timeline: q2-2025', color: 'dcedc1', description: 'Planned for Q2 2025' },
+              { name: 'timeline: q3-2025', color: 'ffd3a5', description: 'Planned for Q3 2025' },
+              { name: 'timeline: q4-2025', color: 'ffa8a8', description: 'Planned for Q4 2025' },
+              { name: 'timeline: future', color: 'c7ceea', description: 'Future timeline (2026+)' }
+            ];
+            
+            for (const label of labels) {
+              try {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label.name,
+                  color: label.color,
+                  description: label.description
+                });
+                console.log(`Created label: ${label.name}`);
+              } catch (error) {
+                if (error.status === 422) {
+                  // Label already exists, update it
+                  await github.rest.issues.updateLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name: label.name,
+                    color: label.color,
+                    description: label.description
+                  });
+                  console.log(`Updated label: ${label.name}`);
+                } else {
+                  console.log(`Error with label ${label.name}: ${error.message}`);
+                }
+              }
+            }
+
+  setup-milestones:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create project milestones
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const milestones = [
+              {
+                title: 'v0.4.0 - Technical Features Release',
+                description: 'Complete GraphRAG integration, Production Codestral AI engine, Enhanced AtomSpace intelligence, Initial hybrid AI architecture',
+                due_on: '2025-03-31T23:59:59Z',
+                state: 'open'
+              },
+              {
+                title: 'v0.5.0 - Advanced Features Release', 
+                description: 'P-Systems membrane computing prototype, B-Series gradient descent implementation, Comprehensive documentation, Performance optimizations',
+                due_on: '2025-06-30T23:59:59Z',
+                state: 'open'
+              },
+              {
+                title: 'v1.0.0 - Research Innovation Release',
+                description: 'J-Surface Julia integration, Differential emotion theory foundation, Complete research framework, Production-ready ecosystem',
+                due_on: '2025-12-31T23:59:59Z',
+                state: 'open'
+              }
+            ];
+            
+            for (const milestone of milestones) {
+              try {
+                await github.rest.issues.createMilestone({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: milestone.title,
+                  description: milestone.description,
+                  due_on: milestone.due_on,
+                  state: milestone.state
+                });
+                console.log(`Created milestone: ${milestone.title}`);
+              } catch (error) {
+                if (error.status === 422) {
+                  console.log(`Milestone already exists: ${milestone.title}`);
+                } else {
+                  console.log(`Error with milestone ${milestone.title}: ${error.message}`);
+                }
+              }
+            }

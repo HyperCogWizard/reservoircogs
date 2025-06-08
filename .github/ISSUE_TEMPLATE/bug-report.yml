@@ -1,0 +1,107 @@
+name: 🐛 Bug Report
+description: Report a bug or issue with ReservoirCogs
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+projects: ["HyperCogWizard/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Bug Report
+        
+        Thank you for reporting a bug! Please fill out the information below to help us diagnose and fix the issue.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which component is affected by this bug?
+      options:
+        - 🕸️ GraphRAG Integration
+        - ⚡ Codestral AI Engine
+        - 🧠 AtomSpace Intelligence
+        - 🔮 Hybrid AI Architecture
+        - 🐍 Python API
+        - ⚙️ C++ Backend
+        - 🎮 ReservoirChat Playground
+        - 📚 Documentation
+        - 🧪 Testing Framework
+        - 🏗️ Build System
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - 🔴 Critical (system crash, data loss)
+        - 🟠 High (major functionality broken)
+        - 🟡 Medium (feature partially broken)
+        - 🟢 Low (minor issue, workaround available)
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe what happened and what you expected to happen instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the bug
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. Run command...
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened? Include error messages if any.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Information about your environment
+      placeholder: |
+        - OS: (e.g., Ubuntu 22.04, macOS 13.0, Windows 11)
+        - Python version: (e.g., 3.9.7)
+        - ReservoirCogs version: (e.g., 0.3.13)
+        - Other relevant versions:
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any additional information about the bug
+      placeholder: |
+        - Screenshots
+        - Log output
+        - Configuration files
+        - Related issues

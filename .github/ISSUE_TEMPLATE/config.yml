@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 ReservoirChat
+    url: https://chat.reservoirpy.inria.fr
+    about: Ask questions about Reservoir Computing using our AI assistant
+  - name: 🎮 Interactive Playground
+    url: https://github.com/HyperCogWizard/reservoircogs/blob/main/playground/index.html
+    about: Explore ReservoirCogs features interactively
+  - name: 📚 Documentation
+    url: https://reservoirpy.readthedocs.io/
+    about: Read the comprehensive documentation
+  - name: 💻 GitHub Discussions
+    url: https://github.com/HyperCogWizard/reservoircogs/discussions
+    about: General questions and community discussions

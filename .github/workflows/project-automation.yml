@@ -1,0 +1,143 @@
+name: Project Management Automation
+
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled]
+  pull_request:
+    types: [opened, edited, labeled, unlabeled]
+
+jobs:
+  project-automation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-assign to project
+        uses: actions/add-to-project@v0.5.0
+        with:
+          project-url: https://github.com/orgs/HyperCogWizard/projects/1
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+
+  label-management:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Label technical features
+        if: contains(github.event.issue.title, '[TECH]') || contains(github.event.pull_request.title, '[TECH]')
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue?.number || context.payload.pull_request?.number;
+            if (issueNumber) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['technical-feature', 'enhancement']
+              });
+            }
+
+      - name: Label future features
+        if: contains(github.event.issue.title, '[FUTURE]') || contains(github.event.pull_request.title, '[FUTURE]')
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue?.number || context.payload.pull_request?.number;
+            if (issueNumber) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['future-roadmap', 'research', 'enhancement']
+              });
+            }
+
+      - name: Label documentation
+        if: contains(github.event.issue.title, '[DOCS]') || contains(github.event.pull_request.title, '[DOCS]')
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue?.number || context.payload.pull_request?.number;
+            if (issueNumber) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['documentation']
+              });
+            }
+
+  priority-assignment:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Assign priority based on labels
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue || context.payload.pull_request;
+            const issueNumber = issue.number;
+            
+            // Check for critical components
+            const body = issue.body || '';
+            const title = issue.title || '';
+            
+            let priorityLabel = '';
+            
+            if (body.includes('🔴 Critical') || title.includes('CRITICAL')) {
+              priorityLabel = 'priority: critical';
+            } else if (body.includes('🟠 High') || title.includes('AtomSpace') || title.includes('GraphRAG')) {
+              priorityLabel = 'priority: high';
+            } else if (body.includes('🟡 Medium')) {
+              priorityLabel = 'priority: medium';
+            } else if (body.includes('🟢 Low')) {
+              priorityLabel = 'priority: low';
+            }
+            
+            if (priorityLabel) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                labels: [priorityLabel]
+              });
+            }
+
+  milestone-assignment:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Assign milestone based on content
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue || context.payload.pull_request;
+            const body = issue.body || '';
+            
+            let milestoneTitle = '';
+            
+            if (body.includes('GraphRAG') || body.includes('Codestral') || body.includes('AtomSpace Intelligence')) {
+              milestoneTitle = 'v0.4.0 - Technical Features';
+            } else if (body.includes('P-Systems') || body.includes('B-Series')) {
+              milestoneTitle = 'v0.5.0 - Advanced Features';
+            } else if (body.includes('J-Surface') || body.includes('Differential Emotion')) {
+              milestoneTitle = 'v1.0.0 - Research Innovation';
+            }
+            
+            if (milestoneTitle) {
+              // Get milestones
+              const milestones = await github.rest.issues.listMilestones({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open'
+              });
+              
+              const milestone = milestones.data.find(m => m.title === milestoneTitle);
+              
+              if (milestone) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  milestone: milestone.number
+                });
+              }
+            }

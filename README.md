@@ -24,6 +24,7 @@
 <p> <img src="static/googlecolab.svg" alt="Google Colab icon" width=32 height=32 align="left"><b>Tutorials:</b> <a href="https://colab.research.google.com/github/reservoirpy/reservoirpy/blob/master/tutorials/1-Getting_Started.ipynb">Open in Colab</a> </p>
 <p> <img src="static/documentation.svg" alt="Open book icon" width=32 height=32 align="left"><b>Documentation:</b> <a href="docs/getting_started.md">Getting Started</a> | <a href="docs/user_guide/index.md">User Guide</a> | <a href="docs/user_guide/atomspace_integration.md">AtomSpace Integration</a></p>
 <p> <img src="static/cpp_icon.svg" alt="C++ icon" width=32 height=32 align="left"><b>C++ API:</b> High-performance reservoir computing with OpenCog AtomSpace integration</p>
+<p> 📋 <img src="https://img.shields.io/badge/GitHub-Project-blue?logo=github" alt="GitHub Project icon" width=24 height=24 align="left"><b>Project Board:</b> <a href=".github/PROJECT_ROADMAP.md">Development Roadmap</a> | <a href="https://github.com/orgs/HyperCogWizard/projects/1">GitHub Project</a></p>
 
 ---
 
@@ -187,6 +188,36 @@ For advanced users, we also showcase partial reproduction of papers on reservoir
 - [**Interactive reservoir computing for chunking information streams** (Asabuki et al., 2018)](/examples/Interactive%20reservoir%20computing%20for%20chunking%20information%20streams/Chunking_Asabuki_et_al_2018.ipynb)
 - [**Next-Generation reservoir computing** (Gauthier et al., 2021)](/examples/Next%20Generation%20Reservoir%20Computing/NG-RC_Gauthier_et_al_2021.ipynb)
 - [**Edge of stability Echo State Network** (Ceni et al., 2023)](/examples/Edge%20of%20Stability%20Echo%20State%20Network/Edge_of_stability_Ceni_Gallicchio_2023.ipynb)
+
+
+## 🏗️ Project Organization & Development Roadmap
+
+ReservoirCogs development is organized through a comprehensive GitHub Project that orchestrates both short-term and long-term implementation of our feature portfolio.
+
+### 🔧 Current Technical Features
+Active development focusing on production-ready capabilities:
+
+- **🕸️ GraphRAG Integration**: Knowledge graph-based retrieval-augmented generation
+- **⚡ Codestral AI Engine**: Specialized language model for technical documentation  
+- **🧠 AtomSpace Intelligence**: OpenCog symbolic AI reasoning capabilities
+- **🔮 Hybrid AI Architecture**: Neural-symbolic fusion implementation
+
+### 🚀 Future Development Roadmap
+Research-driven features for long-term innovation:
+
+- **🧬 P-Systems Membrane Computing** with P-lingua integration
+- **🌳 B-Series Rooted Tree Gradient Descent** with Runge-Kutta methods
+- **💎 J-Surface Julia Differential Equations** with DifferentialEquations.jl
+- **💝 Differential Emotion Theory Framework** for affective computing
+
+### 📋 Project Management
+
+- **[📊 GitHub Project Board](https://github.com/orgs/HyperCogWizard/projects/1)**: Complete project tracking and coordination
+- **[🗺️ Development Roadmap](.github/PROJECT_ROADMAP.md)**: Detailed timeline and milestones
+- **[🏷️ Issue Templates](.github/ISSUE_TEMPLATE/)**: Structured feature requests and bug reports
+- **[⚙️ Automation Workflows](.github/workflows/)**: Automated project management and CI/CD
+
+Our project uses advanced GitHub Project features including custom fields, automated workflows, and multiple views (Board, Table, Timeline) to ensure efficient coordination of complex, interdisciplinary development spanning traditional software engineering and cutting-edge AI research.
 
 
 ## Papers and projects using ReservoirPy

@@ -1,0 +1,115 @@
+name: 🔧 Technical Feature Implementation
+description: Template for implementing current technical features (GraphRAG, Codestral, AtomSpace, Hybrid AI)
+title: "[TECH] "
+labels: ["enhancement", "technical-feature"]
+projects: ["HyperCogWizard/1"]
+assignees:
+  - drzo
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🔧 Technical Feature Implementation
+        
+        Use this template for implementing current technical features including GraphRAG Integration, Codestral AI Engine, AtomSpace Intelligence, and Hybrid AI Architecture.
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: Which technical feature are you working on?
+      options:
+        - 🕸️ GraphRAG Integration
+        - ⚡ Codestral AI Engine
+        - 🧠 AtomSpace Intelligence
+        - 🔮 Hybrid AI Architecture
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: What is the priority level for this implementation?
+      options:
+        - 🔴 Critical (blocking other features)
+        - 🟠 High (important for next release)
+        - 🟡 Medium (planned for current milestone)
+        - 🟢 Low (future enhancement)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: Provide a detailed description of the feature implementation
+      placeholder: |
+        Describe the specific technical feature to be implemented:
+        - What functionality will be added?
+        - How does it integrate with existing components?
+        - What are the expected outcomes?
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-requirements
+    attributes:
+      label: Technical Requirements
+      description: List the technical requirements and dependencies
+      placeholder: |
+        - Programming language(s): 
+        - Dependencies:
+        - Hardware requirements:
+        - Integration points:
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation-plan
+    attributes:
+      label: Implementation Plan
+      description: Outline the step-by-step implementation approach
+      placeholder: |
+        1. Research and design phase
+        2. Core implementation
+        3. Integration with existing system
+        4. Testing and validation
+        5. Documentation and examples
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define the criteria for considering this feature complete
+      placeholder: |
+        - [ ] Core functionality implemented
+        - [ ] Integration tests pass
+        - [ ] Documentation updated
+        - [ ] Examples provided
+        - [ ] Performance benchmarks met
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: related-components
+    attributes:
+      label: Related Components
+      description: Which components will this feature interact with?
+      options:
+        - label: OpenCog AtomSpace integration
+        - label: C++ backend implementation
+        - label: Python frontend API
+        - label: ReservoirChat playground
+        - label: Documentation system
+        - label: Testing framework
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any additional information, research, or context
+      placeholder: Links to papers, research, existing implementations, etc.
