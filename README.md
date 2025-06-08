@@ -206,7 +206,7 @@ Active development focusing on production-ready capabilities:
 Research-driven features for long-term innovation:
 
 - **🧬 P-Systems Membrane Computing** with P-lingua integration
-- **🌳 B-Series Rooted Tree Gradient Descent** with Runge-Kutta methods
+- **🌳 B-Series Rooted Tree Gradient Descent** with Runge-Kutta methods ✅ *Research implementation available*
 - **💎 J-Surface Julia Differential Equations** with DifferentialEquations.jl
 - **💝 Differential Emotion Theory Framework** for affective computing
 
