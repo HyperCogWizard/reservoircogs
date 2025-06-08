@@ -56,6 +56,7 @@ from . import regression_models
 from ._esn import ESN
 from ._esn_online import ESNOnline
 from .utils.save import load
+from .bseries_regression import BSeriesRidgeRegression
 
 
 def _load_files_from_v2(dirpath):
@@ -191,4 +192,4 @@ def load_compat(directory: Union[str, pathlib.Path]) -> ESN_v3:
     return model
 
 
-__all__ = ["ESN", "ESNOnline", "load_compat", "regression_models", "load"]
+__all__ = ["ESN", "ESNOnline", "load_compat", "regression_models", "load", "BSeriesRidgeRegression"]
