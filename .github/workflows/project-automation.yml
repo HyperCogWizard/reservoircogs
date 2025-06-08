@@ -10,11 +10,23 @@ jobs:
   project-automation:
     runs-on: ubuntu-latest
     steps:
+      - name: Verify PROJECT_TOKEN secret
+        run: |
+          if [ -z "${{ secrets.PROJECT_TOKEN }}" ]; then
+            echo "Warning: PROJECT_TOKEN is missing. Project assignment will be skipped.";
+            echo "To enable project assignment, add PROJECT_TOKEN to repository secrets.";
+          else
+            echo "PROJECT_TOKEN is available. Project assignment will proceed.";
+          fi
+
       - name: Auto-assign to project
+        if: ${{ env.PROJECT_TOKEN != '' }}
         uses: actions/add-to-project@v0.5.0
         with:
           project-url: https://github.com/orgs/HyperCogWizard/projects/1
           github-token: ${{ secrets.PROJECT_TOKEN }}
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
 
   label-management:
     runs-on: ubuntu-latest
