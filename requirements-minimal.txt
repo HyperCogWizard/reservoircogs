@@ -1,0 +1,9 @@
+# Minimal requirements file for offline/restricted environments
+# Use this when full requirements.txt cannot be installed due to network restrictions
+
+# Core dependencies only
+numpy>=1.21.1
+scipy>=1.4.1
+
+# Note: This is a minimal set for basic functionality
+# For full functionality, use requirements.txt when network access is available
